@@ -7,6 +7,7 @@ const google = window.google;
 
 const handleCallbackResponse = (response) => {
   console.log("Encoded token: " + response.credential)
+  localStorage.getItem("token", JSON.stringify(response.credential));
 }
 
 function App() {
