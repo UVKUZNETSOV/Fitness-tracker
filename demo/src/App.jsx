@@ -1,15 +1,21 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import HomePage from './components/Homepage';
-import Dashboard from './components/Dashboard';
+import { Routes, Route } from 'react-router-dom';
+import { Homepage } from './components/Homepage';
+import { Dashboard } from './components/Dashboard';
 
-const App = () => (
-  <Router>
-    <Routes>
-      <Route exact path="/" component={Dashboard} />
-      <Route path="/homepage" component={HomePage} />
-    </Routes>
-  </Router>
-);
+function App() {
+  return(
+    <>
+      {/* <header>
+        <a href="/">Home</a>
+        <a href="/dashboard">Dashboard</a>
+      </header> */}
+      <Routes>
+        <Route exact path="/" element={<Homepage />}/>
+        <Route path="/dashboard" element={<Dashboard />} />
+      </Routes>
+    </>
+  )
+}
 
 export default App;

@@ -1,12 +1,12 @@
-import React, { PureComponent } from 'react'
 
-export class Dashboard extends PureComponent {
-  render() {
-    return (
+
+const Dashboard = () => {
+  return (
+    <div className="Dashboard">
       <h1>Dashboard</h1>
-    )
-  }
+    </div>
+  );
 }
 
-export default Dashboard
+export { Dashboard }
 
