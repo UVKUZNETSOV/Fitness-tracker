@@ -1,7 +1,8 @@
-import './style/style.css';
+import '../style/style.css';
 import { useEffect } from 'react';
-import logo from './img/main-logo.png'
-import background from './img/background.png'
+import logo from '../img/main-logo.png'
+import background from '../img/background.png'
+
 
 const google = window.google;
 
@@ -10,7 +11,7 @@ const handleCallbackResponse = (response) => {
   localStorage.getItem("token", JSON.stringify(response.credential));
 }
 
-function App() {
+function Homepage() {
 
   useEffect(() => {
     google.accounts.id.initialize({
@@ -43,4 +44,4 @@ function App() {
 
 }
 
-export default App;
+export default Homepage;
