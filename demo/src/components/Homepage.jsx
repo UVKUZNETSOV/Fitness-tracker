@@ -2,20 +2,33 @@ import '../style/style.css';
 import { useEffect } from 'react';
 import logo from '../img/main-logo.png'
 import background from '../img/background.png'
+import axios from 'axios';
 
 
 const google = window.google;
 
 const handleCallbackResponse = (response) => {
   console.log("Encoded token: " + response.credential)
-  localStorage.getItem("token", JSON.stringify(response.credential));
+  localStorage.setItem("token", JSON.stringify(response.credential));
+
+  axios.get('https://www.googleapis.com/fitness/v1/users/me/dataSources', {
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem("token", JSON.stringify(response.credential))}`,
+    },
+  })
+  .then(response => {
+    console.log('Данные из Google Fit:', response.data);
+  })
+  .catch(error => {
+    console.error('Ошибка при получении данных из Google Fit:', error);
+  });
 }
 
 function Homepage() {
 
   useEffect(() => {
     google.accounts.id.initialize({
-      client_id: "1083641433679-1m22s1mpo5d1muio0aannc0kh2ofivbu.apps.googleusercontent.com",
+      client_id: "979243598839-on1vlm391a83rvo17m0nvdgtqcn46sdh.apps.googleusercontent.com",
       callback: handleCallbackResponse
     })
 

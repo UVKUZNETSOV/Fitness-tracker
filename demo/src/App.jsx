@@ -6,10 +6,10 @@ import { Dashboard } from './components/Dashboard';
 function App() {
   return(
     <>
-      {/* <header>
+      <header>
         <a href="/">Home</a>
         <a href="/dashboard">Dashboard</a>
-      </header> */}
+      </header>
       <Routes>
         <Route exact path="/" element={<Homepage />}/>
         <Route path="/dashboard" element={<Dashboard />} />
