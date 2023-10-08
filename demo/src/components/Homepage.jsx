@@ -9,11 +9,12 @@ const google = window.google;
 
 const handleCallbackResponse = (response) => {
   console.log("Encoded token: " + response.credential)
-  localStorage.setItem("token", JSON.stringify(response.credential));
+  let token = response.credential;
+  // localStorage.setItem("token", JSON.stringify(response.credential));
 
   axios.get('https://www.googleapis.com/fitness/v1/users/me/dataSources', {
     headers: {
-      'Authorization': `Bearer ${localStorage.getItem("token", JSON.stringify(response.credential))}`,
+      'Authorization': `Bearer ${token}`,
     },
   })
   .then(response => {
