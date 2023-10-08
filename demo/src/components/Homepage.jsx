@@ -2,14 +2,37 @@ import '../style/style.css';
 import { useEffect } from 'react';
 import logo from '../img/main-logo.png'
 import background from '../img/background.png'
-
+import axios from 'axios';
 
 const google = window.google;
 
+// const handleLogin = async () => {
+//   try {
+//     const response = await axios.get("https://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");
+//     console.log(response.data.authUrl);
+//     window.location.href = response.data.authUrl;
+//   } catch (error) {
+//     console.error("Error logging in:", error);
+//   }
+// };
+
 const handleCallbackResponse = (response) => {
   console.log("Encoded token: " + response.credential)
-  localStorage.getItem("token", JSON.stringify(response.credential));
+  localStorage.setItem("token", JSON.stringify(response.credential));
+
+  axios.get('https://www.googleapis.com/fitness/v1/users/me/dataSources', {
+    headers: {
+      'Authorization': `Bearer ${localStorage.getItem('token')}`,
+    },
+  })
+  .then(response => {
+    console.log('Данные из Google Fit:', response.data);
+  })
+  .catch(error => {
+    console.error('Ошибка при получении данных из Google Fit:', error);
+  });
 }
+
 
 function Homepage() {
 
