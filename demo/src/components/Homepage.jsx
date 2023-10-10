@@ -4,13 +4,12 @@ import logo from '../img/main-logo.png'
 import background from '../img/background.png'
 import axios from 'axios';
 
-
 const google = window.google;
 
 const handleCallbackResponse = (response) => {
   console.log("Encoded token: " + response.credential)
   let token = response.credential;
-  // localStorage.setItem("token", JSON.stringify(response.credential));
+  localStorage.setItem("token", JSON.stringify(response.credential));
 
   axios.get('https://www.googleapis.com/fitness/v1/users/me/dataSources', {
     headers: {
