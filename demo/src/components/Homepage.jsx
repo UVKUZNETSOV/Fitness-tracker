@@ -13,7 +13,7 @@ const handleCallbackResponse = (response) => {
 
   axios.get('https://www.googleapis.com/fitness/v1/users/me/dataSources', {
     headers: {
-      'Authorization': `Bearer ${token}`,
+      Authorization: `Bearer ${token}`
     },
   })
   .then(response => {
@@ -58,3 +58,4 @@ function Homepage() {
 }
 
 export { Homepage }
+
