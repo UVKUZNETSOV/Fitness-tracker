@@ -7,13 +7,12 @@ import axios from 'axios';
 const google = window.google;
 
 const handleCallbackResponse = (response) => {
-  console.log("Encoded token: " + response.credential)
-  let token = response.credential;
-  localStorage.setItem("token", JSON.stringify(response.credential));
+  // console.log("Encoded token: " + response.credential)
+  const access_token = "1//0cQ4WQN-UPJ0rCgYIARAAGAwSNwF-L9Irv_TV2Q7JZvWFkB7Oy9eVwesF2ibYWNcKZn0OtZ6t8l_Ui_6w_fgwnnuVBFc_nYI9l3U";
 
   axios.get('https://www.googleapis.com/fitness/v1/users/me/dataSources', {
     headers: {
-      Authorization: `Bearer ${token}`
+      Authorization: `Bearer ${access_token}`
     },
   })
   .then(response => {
@@ -22,13 +21,14 @@ const handleCallbackResponse = (response) => {
   .catch(error => {
     console.error('Ошибка при получении данных из Google Fit:', error);
   });
-}
+
+  }
 
 function Homepage() {
 
   useEffect(() => {
     google.accounts.id.initialize({
-      client_id: "979243598839-on1vlm391a83rvo17m0nvdgtqcn46sdh.apps.googleusercontent.com",
+      client_id: "971625646791-7735ksjot150hplhr71836ld15262f91.apps.googleusercontent.com",
       callback: handleCallbackResponse
     })
 

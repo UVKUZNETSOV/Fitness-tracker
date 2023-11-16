@@ -1,0 +1,11 @@
+https://accounts.google.com/o/oauth2/auth?client_id=971625646791-7735ksjot150hplhr71836ld15262f91.apps.googleusercontent.com&redirect_uri=http://localhost&response_type=code&scope=https://www.googleapis.com/auth/drive&access_type=offline
+
+http://localhost/?code=4/0AfJohXmMa9Y9NmJC27vE6ZDZ7qgDGWbLnz8dm6baLOUDXczwMe0B1T1AmANFUacKHgld6g&scope=https://www.googleapis.com/auth/drive
+
+curl --request POST --data "code=4/0AfJohXmMa9Y9NmJC27vE6ZDZ7qgDGWbLnz8dm6baLOUDXczwMe0B1T1AmANFUacKHgld6g&client_id=971625646791-7735ksjot150hplhr71836ld15262f91.apps.googleusercontent.com&client_secret=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&redirect_uri=http://localhost&grant_type=authorization_code" https://oauth2.googleapis.com/token
+
+access_token=ya29.a0AfB_byDHkeYOS82rtGfpKMzSwZkTKF3I94ma8rbcl7f0wEZHkDdBOG2cRVUQk4_6YxwapUbNHMF_2sJbkv8P4IKySyB0PQ8bLLRm_TGStvId_Yx5pU32fim6VxvsTthq_4qXAz5ObNAzuH9d5-gqI34_anVe5WiJfY99aCgYKAVYSARASFQHGX2MioAKuxza7DKM5JHx-u5baSg0171
+
+refresh_token=1//0cQ4WQN-UPJ0rCgYIARAAGAwSNwF-L9Irv_TV2Q7JZvWFkB7Oy9eVwesF2ibYWNcKZn0OtZ6t8l_Ui_6w_fgwnnuVBFc_nYI9l3U
+
+curl --request POST --data "code=xxxxxxxx&client_id=xxxxxxxxxxxx&client_secret=xxxxxxxxxxxx&redirect_uri=http://localhost&grant_type=authorization_code" https://oauth2.googleapis.com/token
